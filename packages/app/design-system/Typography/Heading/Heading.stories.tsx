@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { Heading } from './heading'
 
@@ -8,9 +8,6 @@ export default {
   component: Heading,
 
   args: {
-    size: 'medium',
-    variant: 'h1',
-    fontWeight: 'normal',
     fontFamily: 'sans-serif'
   },
   argTypes: {
@@ -33,16 +30,16 @@ export default {
       }
     }
   }
-} as Meta<typeof Heading>
+} as ComponentMeta<typeof Heading>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: Story<typeof Heading> = (args) => (
+const Template: ComponentStory<typeof Heading> = (args) => (
   <Heading {...args}>Flexasus Heading. Have a good day. </Heading>
 )
 
-export const DefaultHeading: Story<typeof Heading> = Template.bind({})
+export const DefaultHeading: ComponentStory<typeof Heading> = Template.bind({})
 
-export const Primary: Story<typeof Heading> = Template.bind({})
+export const Primary: ComponentStory<typeof Heading> = Template.bind({})
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
