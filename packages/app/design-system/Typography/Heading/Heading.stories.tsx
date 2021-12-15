@@ -40,9 +40,9 @@ const Template: Story<typeof Heading> = (args) => (
   <Heading {...args}>Flexasus Heading. Have a good day. </Heading>
 )
 
-export const DefaultHeading = Template.bind({})
+export const DefaultHeading: Story<typeof Heading> = Template.bind({})
 
-export const Primary = Template.bind({})
+export const Primary: Story<typeof Heading> = Template.bind({})
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
