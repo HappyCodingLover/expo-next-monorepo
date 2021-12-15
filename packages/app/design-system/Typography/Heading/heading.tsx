@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import PropTypes from 'prop-types'
 
 export type HeadingProps = {
   // onPress: () => void
@@ -8,28 +7,27 @@ export type HeadingProps = {
   // color?: string
   // textColor?: string
   // size?: string
-  size?: string
-  children?: any
-  variant?: any
-  fontWeight?: string
+  size?: 'huge' | 'large' | 'medium' | 'small' | 'tiny'
+  children?: React.ReactNode
+  variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  fontWeight?: 'normal' | 'bold'
   fontFamily?: string
   color?: string
-  underline?: any
+  underline?: boolean
   italic?: boolean
-  fontSize?: any
+  fontSize?: number
 }
 
 export const Heading = ({
-  size,
-  children,
-  variant,
-  fontWeight,
-  fontFamily,
+  size = 'medium',
+  variant = 'h1',
+  fontWeight = 'normal',
+  fontFamily = 'sans-serif',
   color,
-  underline,
-  italic,
+  underline = false,
+  italic = false,
   fontSize,
-  ...props
+  children
 }: HeadingProps) => {
   const Container: any = styled.View`
     font-weight: ${fontWeight};
@@ -49,25 +47,5 @@ export const Heading = ({
   //     italic: italic
   //   }
   // )
-  return <Container {...props}>{children}</Container>
-}
-
-Heading.propTypes = {
-  size: PropTypes.oneOf(['huge', 'large', 'medium', 'small', 'tiny']),
-  variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-  fontWeight: PropTypes.string,
-  fontFamily: PropTypes.string,
-  color: PropTypes.string,
-  underline: PropTypes.bool,
-  italic: PropTypes.bool,
-  fontSize: PropTypes.string
-}
-
-Heading.defaultProps = {
-  variant: 'h1',
-  fontWeight: 'normal',
-  size: 'normal',
-  fontFamily: 'sans-serif',
-  underline: false,
-  italic: false,
+  return <Container>{children}</Container>
 }
